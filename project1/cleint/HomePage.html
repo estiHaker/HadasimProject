@@ -1,0 +1,145 @@
+<head> 
+    <meta charset='utf-8' />
+    <script src="HomePage.js"></script>
+    <link rel="stylesheet" type="text/css" href="HomePage.css">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
+</head>
+<body onload="start()">
+    <div id="main">
+
+<div id="member">
+ //רשימת חברים
+<select onchange="showDetails()" id="selectMembers"></select>
+<div id="fromDetails">
+    <legend>details</legend>
+</div>
+</div>
+
+<div id="cud">
+//הוספת חבר 
+<div id="addMember">
+    <input id="nameAdd" type="text" placeholder="enter a name">
+    <input id="lastNameAdd" type="text" placeholder="enter a last name">
+    <input id="idAdd" type="text" placeholder="enter a id">
+    <input id="DobAdd" type="date">
+    <input id="addressAdd" type="text" placeholder="enter a address">
+    <input id="phoneAdd" type="text" placeholder="enter a phone">
+    <input id="mobilePhoneAdd" type="text" placeholder="enter a mobilePhone">
+    <button onclick="addMember()">add member</button>
+</div>
+//עידכון חבר
+<div id="updateMember">
+    <select onchange="fill()" id="selectUpdateMembers"></select>
+    <input id="nameUpdate" type="text" >
+    <input id="lastNameUpdate" type="text">
+    <input id="idUpdate" type="text" >
+    <input id="DobUpdate" type="date">
+    <input id="addressUpdate" type="text">
+    <input id="phoneUpdate" type="text">
+    <input id="mobilePhoneUpdate" type="text" >
+    <input id="illUpdate" type="date" >
+    <input id="recoveryUpdate" type="date">
+    <p id="countVac"></p>
+
+    <button onclick="updateMember()">update member</button>
+</div>
+
+
+//מחיקת חבר
+<div id="deleteMember">
+    <select  id="selectDeleteMembers"></select>
+    <button onclick="DeleteMember()">delete Member</button>
+</div>
+</div>
+
+
+
+
+
+
+<div id="vaccination">
+    //חיסונים הוספת
+    <div id="addVaccination">
+        <select id="selectManufacurer"></select>
+        <select id="selectMemberAddVac"></select>
+        <input id="dateAdd" type="date"> 
+        <button onclick="addVaccination()">add vaccination</button>
+    </div>
+</div>
+
+    </div>
+</body>
+
+
+
+<!-- // Sample data for the request
+const requestData = {
+    codeMem: 0,
+    name: "John",
+    lastName: "Doe",
+    id: 0,
+    address: "123 Main St",
+    dob: "2024-03-26T10:33:47.316Z",
+    phone: "123-456-7890",
+    mobilePhone: "987-654-3210",
+    ill: "2024-03-26T10:33:47.316Z",
+    recovery: "2024-03-26T10:33:47.316Z",
+    vaccination: [
+        {
+            id: 0,
+            dateOfVaccination: "2024-03-26T10:33:47.316Z",
+            manufacturer: {
+                codeMan: 1,
+                name: "Pfizer"
+            },
+            members: "John Doe"
+        }
+    ],
+    countVac: 1
+};
+
+// Make POST request to the API endpoint
+fetch('your_api_endpoint_here', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(requestData),
+})
+.then(response => {
+    if (response.ok) {
+        console.log('Data added successfully!');
+    } else {
+        throw new Error('Failed to add data.');
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+}); -->
+<!-- {
+    "id": 0,
+    "dateOfVaccination": "2024-03-26T23:17:44.868Z",
+    "manufacturer": {
+      "codeMan": 0,
+      "name": "string"
+    },
+    "codeMan": 0,
+    "members": {
+      "codeMem": 0,
+      "name": "string",
+      "lastName": "string",
+      "id": 0,
+      "address": "string",
+      "dob": "2024-03-26T23:17:44.869Z",
+      "phone": "string",
+      "mobilePhone": "string",
+      "ill": "2024-03-26T23:17:44.869Z",
+      "recovery": "2024-03-26T23:17:44.869Z",
+      "vaccination": [
+        "string"
+      ],
+      "countVac": 0
+    },
+    "codeMem": 0
+  } -->
